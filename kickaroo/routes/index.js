@@ -110,7 +110,14 @@ moment().format();
 		res.render('retrieve.ejs');
 	});
 	//#### EVENTS ROUTES  BEGIN####
-	
+		app.get('/premevent', function(req, res) {
+
+		// render the page and pass in any flash data if it exists
+		res.render('premevent.ejs', {
+			user : req.user // 
+		});
+
+	});
 	
 //Pull all records from database
 app.get('/eventsrouter', function(req, res){ // listening for people who are using this to talk to server
@@ -130,7 +137,7 @@ app.post('/eventsrouter', function(req,res){
 				
 	
 	console.log(req.body.description);
-	var file =  new Event({ title: req.body.title, author: req.body.author , description:req.body.description, date: req.body.date });
+	var file =  new Event({ title: req.body.title, author: req.user.local.email , description:req.body.description, date: req.body.date, sport: req.body.sport, location: req.body.location});
 	///////////////
 	file.save(function (err) {
 	

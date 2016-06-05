@@ -52,7 +52,7 @@
           <div class="jumbotron col-md-12" id="introarea">
     <div class="col-md-12 navbar navbar-inverse mainnav">
 
-        <h2>Join an Event</h2>
+        <h2>Premium Newtown FootyCrawl</h2>
 
 
     </div>
@@ -63,13 +63,20 @@
 </div>
 
 <div class="eventsboard col-md-12">
+  <div class="col-md-6 col-md-offset-2">
+    <img src="../img/newton.jpg">
+  </div>
+  <div class="col-md-12">
+<h3> <strong>Description:</strong></h3>
+<p> AAA Beer is hosting a once-in-a-lifetime event to celebrate the State of Origin finals!</p> 
+<p> Drinks will be 50% off for premium members. Spots are limited so signup now!</p>
+<h3> <strong>Date:</strong></h3>
+<p>19/02/2017</p>
+<h3> <strong>Location:</strong></h3>
+<script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script><div style='overflow:hidden;height:440px;width:700px;'><div id='gmap_canvas' style='height:440px;width:700px;'></div><div><small><a href="http://embedgooglemaps.com">                 embed google maps             </a></small></div><div><small><a href="https://privacypolicygenerator.info">privacy policy example</a></small></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div><script type='text/javascript'>function init_map(){var myOptions = {zoom:10,center:new google.maps.LatLng(-33.89433738610465,151.18275001516648),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(-33.89433738610465,151.18275001516648)});infowindow = new google.maps.InfoWindow({content:'<strong>Premium Newtown FootyCrawl</strong><br>174 King St Newtown NSW 2042<br>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
+<p> Hi <%= user.local.email %>, you are already signed up to this event!</p>
+</div>
 
-
-
-    <h1>Thank you for monthly recurring purchase!</h1>
-    <h2>You are now a premium user! A monthly invoice will be sent to the email address that was specified on purchase.</h2>
-    <p>Please click the link below to continue to your event page.</p>
-    <a class="btn premevent" href="premevent">Continue</a>
 
 </div>
 

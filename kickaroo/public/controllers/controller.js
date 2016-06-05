@@ -29,6 +29,35 @@ $scope.icalurl = {};
 $scope.globaluser= {};
 
 
+    $scope.slick = function () {
+            $(document).ready(function(){
+      $('.slickslider').slick(
+        );
+    });
+    }
+
+    $scope.private = function () {
+
+    	$(document).ready(function(){
+    		console.log('ayyo');
+    		$(".btn#private").click(function() {
+    			    var $this = $(this);
+
+    			$this.toggleClass('SeeMore2');
+    			if($this.hasClass('SeeMore2')){
+    				$this.text('Host Public Event');   
+    				$('.form-group.private').removeClass('hidden');      
+    			} else {
+    				$this.text('Host Private Event');
+    				$('.form-group.private').addClass('hidden');
+    			}
+
+    			
+
+    		});
+
+    	});
+    }
 
 $scope.initial= function(user){
 	$scope.globaluser.user = user;
@@ -93,3 +122,6 @@ console.log($scope.globaluser.user+"@##@#@@##@#@");
 	
 
 }]);
+
+
+

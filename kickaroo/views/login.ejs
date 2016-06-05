@@ -3,8 +3,8 @@
         <head>
         <meta charset="UTF-8">              
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>TimetableSharing Log-In</title>
-        
+        <title>Kickaroo Log-In</title>
+        <link href="../css/main.css" rel="stylesheet" type="text/css"/>
         <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="../css/borderless.css" rel="stylesheet" type="text/css"/>
     </head>
@@ -12,27 +12,31 @@
     <body>
         <div class="site-wrapper">
             <div class="container">
-                <div class="headerh">
-                    <div class="logo">
-                    LOGO
+                <div class="page-header col-md-12">
+                    <div class="logo col-md-2">
+                         <img id="scaledImage" src="../images/kickaroo.png" alt=""/>
                     </div>
 
-                    <div class="maintitle">
-                        Kickaroo
+                    <div class="maintitle col-md-8">
+                        <h1>Kickaroo</h1>
 
                     </div>
-
-                    <div class="timeticker">
+                    <div class="navbar navbar-inverse col-md-2">
+                    <div class="navbar-collapse collapse navbar-responsive-collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="/">Game of the day</a></li>
+                 
+                        </ul>
                     </div>
-
+                </div>
 
                 </div>
                 <!-- Navigation Bar container -->
-                <div class="navbar navbar-inverse" style="background-color: #419641">
-                    <a class="navbar-brand">Timetable Sharing</a>
+                <div class="navbar navbar-inverse col-md-12 " >
+                    <a class="navbar-brand">Kickaroo</a>
                     <div class="navbar-collapse collapse navbar-responsive-collapse">
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="/">Homenope</a></li>
+                            <li><a href="/">Home</a></li>
                             <li><a href="login">Log In <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span></a></li>
                             <li><a href="signup"><span class="glyphicon glyphicon-registration-mark" aria-hidden="true"></span> Sign up</a></li>
                         </ul>
@@ -40,7 +44,7 @@
                 </div>
                     
                 <!-- log in box container -->
-                <div id="login-box">
+                <div class="col-md-9 col-md-offset-3" id="login-box">
                     <h1><span class="fa fa-sign-in"></span> Login</h1>
                     <!-- show any messages that come back with authentication -->
                     <% if (message.length > 0) { %>
@@ -70,8 +74,11 @@
                         </div>
                     </form>
                 </div>
-
+                       <footer class="col-md-12 navbar navbar-inverse disclaimerplus">
+                  <p> Disclaimer: This is a mock-up site created for the purposes of ELEC3610. It is not a real website.</p>
+                </footer>
             </div>
+
         </div>
         
         <!-- Core javaScript files -->

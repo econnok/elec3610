@@ -9,6 +9,7 @@ var KeventSchema  = mongoose.Schema({
 		date        : String,
 		sport: String,
 		location: String,
+		author: String,
 });
 
 

@@ -6,6 +6,9 @@
         <link href="../css/main.css" rel="stylesheet" type="text/css"/>
         <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="../css/borderless.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+        <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+
     </head>
     
     <body>
@@ -35,10 +38,8 @@
                     <div class="navbar-collapse collapse navbar-responsive-collapse">
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
-                            <li><a href="/">News<span class="glyphicon glyphicon-log-in" aria-hidden="true"></span></a></li>
-                            <li><a href="/">Events</a></li>
-                            <li><a href="/"><span class="glyphicon glyphicon-registration-mark" aria-hidden="true"></span>Merchandise</a></li> 
-                            <li><a href="signup"><span class="glyphicon glyphicon-registration-mark" aria-hidden="true"></span>Forum</a></li> 
+                            <li><a href="news">News<span class="glyphicon glyphicon-log-in" aria-hidden="true"></span></a></li>
+                            <li><a href="merchandise"><span class="glyphicon glyphicon-registration-mark" aria-hidden="true"></span>Merchandise</a></li> 
                             <li><a href="login"><span class="glyphicon glyphicon-registration-mark" aria-hidden="true"></span>Login</a></li>                             
                         </ul>
                     </div>
@@ -58,12 +59,21 @@
                     <div class="centre-slider col-md-8">
                   
 
-                         <img id="scaledImage" src="../images/slider.jpg" alt=""/>
-                         <p>Placeholder Image Slider widget</p>
-                         <div class="col-md-5 col-md-offset-3 ad"
-                         <em>Advertise here</em>
-                     </div>
-                   
+                         
+                    
+                        <div class="slickslider">
+                          <div><img  class="img-responsive" src="../img/soccer.jpg" alt=""/><div class="slidertxt"><span>EPL Heats up!</span></div></div>
+                          <div><img  class="img-responsive" src="../img/beer.jpg" alt=""/><div class="slidertxt"><span>Join one of our many premium events for great deals!</span></div></div>
+                          <div><img  class="img-responsive"  src="../img/soo.jpg" alt=""/><div class="slidertxt"><span>State of Origin coming soon!</span></div></div>
+                      </div>
+
+                      <div class="col-md-5 col-md-offset-3 ad">
+                       <img class= "img-responsive" src="../img/beeeeer.jpg"/>
+                       <div class="adotxt">
+                        <p>Contact us to put your advertisement here!</p>
+                    </div>
+                </div>
+                
                         <hr>
                     </div>
 
@@ -92,6 +102,15 @@
         <!-- Core javaScript files -->
         <script src="../js/jquery.min.js" type="text/javascript"></script>
         <script src="../js/bootstrap.js" type="text/javascript"></script>
+        <script type="text/javascript" src="slick/slick.min.js"></script>
+
+
+         <script type="text/javascript">
+    $(document).ready(function(){
+      $('.slickslider').slick(
+        );
+    });
+  </script>
     </body>
     
     <style>

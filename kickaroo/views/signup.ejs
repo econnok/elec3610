@@ -4,7 +4,7 @@
         <meta charset="UTF-8">              
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Node Authentication</title>
-        
+        <link href="../css/main.css" rel="stylesheet" type="text/css"/>
         <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="../css/borderless.css" rel="stylesheet" type="text/css"/>
     </head>
@@ -12,26 +12,30 @@
     <body>
         <div class="site-wrapper">
             <div class="container">
-                <header class="headerh">
-                <div class="logo">
-                    LOGO
+    <div class="page-header col-md-12">
+                    <div class="logo col-md-2">
+                         <img id="scaledImage" src="../images/kickaroo.png" alt=""/>
+                    </div>
+
+                    <div class="maintitle col-md-8">
+                        <h1>Kickaroo</h1>
+
+                    </div>
+                    <div class="navbar navbar-inverse col-md-2">
+                    <div class="navbar-collapse collapse navbar-responsive-collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="/">Game of the day</a></li>
+                 
+                        </ul>
+                    </div>
                 </div>
 
-                <div class="maintitle">
-                    Kickaroo
-
                 </div>
-
-                <div class="timeticker">
-                </div>
-
-
-            </header>
 
 
                 <!-- Navigation Bar container -->
-                <div class="navbar navbar-inverse" style="background-color: #419641">
-                    <a class="navbar-brand">Timetable Sharing</a>
+                <div class="navbar navbar-inverse col-md-12">
+                    <a class="navbar-brand">Kickaroo</a>
                     <div class="navbar-collapse collapse navbar-responsive-collapse">
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="/">Home</a></li>
@@ -42,7 +46,7 @@
                 </div>
                 
                 <!-- Sign Up box container -->
-                <div id="regi-box">
+                <div class="col-md-9 col-md-offset-3" id="regi-box">
                     <h1><span class="fa fa-sign-in"></span> Signup</h1>
 
                     <!-- show any messages that come back with authentication -->
@@ -61,20 +65,7 @@
                             <input type="password" class="form-control" name="password">
                         </div>
                         <br>
-                        <h3>Optional Information</h3>
-                        <div class="form-group">
-                            <label>Your Name</label>
-                            <input type="text" class="form-control" name="name" placeholder="First Name + Surname">
-                        </div>
-                        <div class="form-group">
-                            <label>Univeristy</label>
-                            <input type="text" class="form-control" name="name" placeholder="Current University">
-                        </div>
-                        <div class="form-group">
-                            <label>Degree</label>
-                            <input type="text" class="form-control" name="name" placeholder="Current Degree">
-                        </div>
-                        <hr>
+                        
                         <div class="span7 text-center">
                             <div class="btn-group">
                                 <a href="/" class="btn btn-default btn-lg">Cancel</a>
@@ -85,6 +76,9 @@
                         <div class="span7 text-center"><a href="retrieve" class="btn btn-info">Forgot your Information?</a></div>
                     </form>  
                 </div>
+                           <footer class="col-md-12 navbar navbar-inverse disclaimerplus">
+                  <p> Disclaimer: This is a mock-up site created for the purposes of ELEC3610. It is not a real website.</p>
+                </footer>
             </div>
         </div>
 
