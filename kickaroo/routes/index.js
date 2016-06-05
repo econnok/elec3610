@@ -104,6 +104,11 @@ moment().format();
 		res.render('authwall.ejs',  { message: req.flash('signupMessage') });
 	});
 	
+	app.get('/prototype', function(req, res) {
+		
+		res.render('prototype.ejs');
+	});
+	
 	app.get('/retrieve', function(req, res) {
 
 		// render the page and pass in any flash data if it exists
