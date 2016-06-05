@@ -19,13 +19,19 @@
                 <a href="#">Premium Newtown FootyCrawl</a>
             </div>
             <div class="eventdate  col-md-12">
-                <span>19/02/2017</span>
+                <strong>Date: </strong><span>19/02/2017</span>
+            </div>
+            <div class="eventsport  col-md-12">
+                <strong>Sport: </strong><span>NRL</span>
+            </div>
+            <div class="eventlocation  col-md-12">
+                <strong>Venue: </strong><span>Newtown Hotel</span>
             </div>
             <div class="eventpic col-md-12">
                 <a href="#"><img class="img-responsive"  src="../img/pub.jpg"></img></a>
             </div>
             <div class="eventbtn col-md-12">
-                <a class="btn" href="#">Join Now!</a>
+                <a class="btn" href="/joinprem">Join Now!</a>
             </div>
         </div>
     <div class="event col-md-3" ng-repeat="kevent in kevents">
@@ -33,7 +39,13 @@
         <a href="#">{{kevent.title}}</a>
         </div>
         <div class="eventdate  col-md-12">
-            <span>{{kevent.date}}</span>
+            <strong>Date: </strong><span>{{kevent.date}}</span>
+        </div>
+        <div class="eventsport  col-md-12">
+            <strong>Sport: </strong><span>{{kevent.sport}}</span>
+        </div>
+        <div class="eventlocation  col-md-12">
+            <strong>Location: </strong><span>{{kevent.location}}</span>
         </div>
         <div class="eventpic col-md-12">
             <a href="#"><img class="img-responsive"  src="../img/pub.jpg"></img></a>

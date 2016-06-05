@@ -1,0 +1,33 @@
+<div class="jumbotron col-md-12" id="introarea">
+    <div class="col-md-12 navbar navbar-inverse mainnav">
+
+        <h2>Join an Event</h2>
+
+
+    </div>
+    <div class="col-md-12 navbar navbar-inverse smallnav">
+       <ul class="nav navbar-nav navbar-right">
+        <li><a href="#events">Events Hub<span class="glyphicon glyphicon-log-in" aria-hidden="true"></span></a></li>                          
+    </ul>
+</div>
+
+<div class="eventsboard col-md-12">
+  <h3>You have requested to join a Premium Event. But you are not a premium member</h3>
+  <p>If you wish to signup, please upgrade your account to a premium membership</p>
+
+  <form action="/charge" method="POST">
+    <script
+        src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-key="pk_test_yZwVlBoQiuGNV4eA7qstjL6P"
+        data-amount="500"
+        data-name="Premium Membership"
+        data-description="Premium Subscription 1 month ($5.00)"
+        data-image="../img/pub.jpg">
+    </script>
+</form>
+</div>
+
+ 
+</div>
+
+

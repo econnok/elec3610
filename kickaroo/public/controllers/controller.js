@@ -15,6 +15,10 @@ var myApp = angular.module('myApp', ['ngRoute'])
 	$routeProvider.when('/upload', {
 		templateUrl: 'upload.html'
 		});		
+	
+				$routeProvider.when('/charge', {
+		templateUrl: 'charge.html'
+		});		
 
 }]);
 

@@ -5,7 +5,7 @@ var express = require('express');
 var router = express.Router();
 var Event = require('../models/kevent');
 var moment = require('moment');
-
+var stripe = require("stripe")("pk_test_yZwVlBoQiuGNV4eA7qstjL6P");
 
 
 	app.use(function(req, res, next) {
@@ -138,6 +138,56 @@ app.post('/eventsrouter', function(req,res){
 	res.json(0);
 
 });
+
+app.get('/joinprem', isLoggedIn, function(req, res) {
+
+		res.render('joinprem.ejs', {
+			user : req.user // 
+		});
+
+});
+
+app.post('/charge', function(req, res) {
+
+	var stripeToken = req.body.stripeToken;
+
+	var charge = stripe.charges.create({
+		amount: 500, // amount in cents, again
+		currency: "usd",
+		card: stripeToken,
+		description: "PremiumKickaroo"
+	}, function(err, charge) {
+		if (err && err.type === 'StripeCardError') {
+			// The card has been declined
+		} else {
+			//Render a thank you page called "Charge"
+			
+			res.render('charge', { title: 'Charge', user : req.user  });
+		}
+	});
+
+});
+app.post('/chargemon', function(req, res) {
+
+	var stripeToken = req.body.stripeToken;
+
+	var charge = stripe.charges.create({
+		amount: 500, // amount in cents, again
+		currency: "usd",
+		card: stripeToken,
+		description: "PremiumKickaroo"
+	}, function(err, charge) {
+		if (err && err.type === 'StripeCardError') {
+			// The card has been declined
+		} else {
+			//Render a thank you page called "Charge"
+			
+			res.render('chargemon', { title: 'Charge', user : req.user  });
+		}
+	});
+
+});
+
 // route middleware to make sure
 function isLoggedIn(req, res, next) {
 

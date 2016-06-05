@@ -11,6 +11,7 @@ var userSchema = mongoose.Schema({
         name         : String,
         university   : String,
         degree       : String,
+        premium: Boolean,
     }
 
 });
