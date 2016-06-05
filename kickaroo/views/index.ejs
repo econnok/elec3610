@@ -1,100 +1,109 @@
 <html ng-app ="myApp" ng-controller="AppCtrl" ng-init ="initial('<%= user.local.email %>')">
-    <head>
-        <title>TimeSharing Calender</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <link href="../css/borderless.css" rel="stylesheet" type="text/css"/>
-    </head>
+<head>
 
-    <body>  
-        <div class="site-wrapper">
-            <!-- NavBar class used when the user is logged in -->        
-            <div class="navbar navbar-inverse" style="background-color: #239a55">
-                <ul class="nav navbar-nav navbar-left">
-                    <div class="navbar-brand">Timetable Management System</div>
-                    <li><a href="#/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
-                    <li><a href="#groups"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> Group Timetable</a></li>
-                    <li><a href="#upload"><span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Upload Timetable</a></li>
-                     <div class="loggedinstatus"<strong>Hello</strong>: <%= user.local.email %><br></div>
-                </ul>
+    <title>Kickaroo</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../css/main.css" rel="stylesheet" type="text/css"/>
+    <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="../css/borderless.css" rel="stylesheet" type="text/css"/>
+</head>
 
-                <ul class="nav navbar-nav navbar-right">
-                <li><form class="navbar-form navbar-left">
-                    <input type="text" class="form-control col-lg-8" placeholder="Search">
-                    </form></li>
-                    <li><a href="/logout"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout</a></li>
-                </ul>
-            </div>		
-		
-        	<div class = "outerborder">
-        		<ng-view> </ng-view>
-        	</div>
+<body>  
+    <div class="site-wrapper">
+      <div class="site-wrapper">
+        <div class="container">                
+            <div class="page-header col-md-12">
+                <div class="logo col-md-2">
+                   <img id="scaledImage" src="../images/kickaroo.png" alt=""/>
+               </div>
 
-            <div class="container">
-                <div id="currentTimetable">
-                    <div class="panel panel-success">
-                        <div class="panel-heading">
-                        </div>
-                        <div class="panel-body">
-                            <div class = "outerborder">
-                            </div>
+               <div class="maintitle col-md-8">
+                <h1>Kickaroo</h1>
 
-                            <table class = "table table-bordered ">
-                                <tr>
-                                    <th>Hour </th>
-                                    <th>MON </th>
-                                    <th>TUES </th>
-                                    <th>WED </th>
-                                    <th>THURS </th>
-                                    <th>FRI </th>
+            </div>
+            <div class="navbar navbar-inverse col-md-2">
+                <div class="navbar-collapse collapse navbar-responsive-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/">Game of the day</a></li>
 
-
-
-                                </tr>
-                                <tr ng-repeat="time in times"  ng-if="time.hour >= 8">
-                                    <td>{{time.hour}}</td>
-                                    <td ng-style="set_color(time.mon)">{{time.mon}}</td>
-                                    <td ng-style="set_color(time.tues)">{{time.tues}}</td>
-                                    <td ng-style="set_color(time.wed)">{{time.wed}}</td>
-                                    <td ng-style="set_color(time.thurs)">{{time.thurs}}</td>
-                                    <td ng-style="set_color(time.fri)">{{time.fri}}</td>
-                                </tr>                    
-                            </table>
-                        </div>
-                    </div>
+                    </ul>
                 </div>
-                <br>
+            </div>
+
+        </div>
+
+        <div class="navbar navbar-inverse col-md-12">
+            <div class="navbar-collapse collapse navbar-responsive-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
+                    <li><a href="login">News<span class="glyphicon glyphicon-log-in" aria-hidden="true"></span></a></li>
+                    <li><a href="retrieve">Events</a></li>
+                    <li><a href="signup"><span class="glyphicon glyphicon-registration-mark" aria-hidden="true"></span>Merchandise</a></li> 
+                    <li><a href="signup"><span class="glyphicon glyphicon-registration-mark" aria-hidden="true"></span>Forum</a></li> 
+                    <li><a href="signup"><span class="glyphicon glyphicon-registration-mark" aria-hidden="true"></span>Login</a></li>                             
+                </ul>
             </div>
         </div>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-route.js"></script>
-        <script src="controllers/controller.js"></script>
-        <script src="../js/jquery.min.js" type="text/javascript"></script>
-        <script src="../js/bootstrap.js" type="text/javascript"></script>
+        <div class="jumbotron col-md-12" id="introarea">
+            <div class="left-main col-md-2">
+               <ul class="nav navbar-nav navbar-right">
+                <h3> SPORTS</h3>
+                <li><a href="/">A-League<span class="glyphicon glyphicon-log-in" aria-hidden="true"></span></a></li>
+                <li><a href="login">AFL<span class="glyphicon glyphicon-log-in" aria-hidden="true"></span></a></li>
 
-    </body>
-    
-    <style>
-        #scaledImages {
-            max-height: 100%;
-            max-width: 100%;
-        }
-        .form-horizontal {
-            border: solid;
-            border-color: #2ECC71;
-            border-radius: 6px;
-            padding: 20px;
-        }
-        h3{
-            color:white;
-            margin-top:2rem;  
-        }
-        .outerborder{
-            margin-left:50px;
-            margin-right:50px;
-        }
-    </style>
+                <li><a href="login">NRL<span class="glyphicon glyphicon-log-in" aria-hidden="true"></span></a></li>
+            </ul>
+        </div>
+
+        <div class="centre-slider col-md-8">
+
+
+           <img id="scaledImage" src="../images/slider.jpg" alt=""/>
+           <p>Placeholder Image Slider widget</p>
+           <div class="col-md-5 col-md-offset-3 ad"
+           <em>Advertise here</em>
+       </div>
+
+       <hr>
+   </div>
+
+   <div class="right-main col-md-2">
+      <ul class="nav navbar-nav navbar-right">
+        <div class="loggedinstatus"<strong>Hello</strong>: <%= user.local.email %><br></div>
+        <li><a href="/">My Account<span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
+        <li><a href="login">Latest Forum Replies<span class="glyphicon glyphicon-log-in" aria-hidden="true"></span></a></li>
+
+        <li><a href="login">Latest Events<span class="glyphicon glyphicon-log-in" aria-hidden="true"></span></a></li>
+    </ul>
+</div>
+
+
+</div>
+<footer class="col-md-12 navbar navbar-inverse disclaimerplus">
+  <p> Disclaimer: This is a mock-up site created for the purposes of ELEC3610. It is not a real website.</p>
+</footer>
+</div>
+
+</div>
+
+
+</div>
+
+
+
+</div>
+
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-route.js"></script>
+      <script src="controllers/controller.js"></script>
+      <script src="../js/jquery.min.js" type="text/javascript"></script>
+      <script src="../js/bootstrap.js" type="text/javascript"></script>
+
+  </body>
+
+  <style>
+
+</style>
 </html>

@@ -4,7 +4,30 @@ color: white;
 
 }
 
+body {
+	background-color: lightgray !important;
+}
+.ad {
+	border: 1px solid black;
+	height: 40px;
+}
+#introarea{
+	background-color: #fff;
 
+}
+#info-box {
+	border-radius: 6px;
+	padding: 48px 60px;
+	background-color: #fff;
+	margin-top: 100px;
+}
+#bottom-half {
+	padding-top: 50px;
+}
+#scaledImage {
+	max-height: 100%;
+	max-width: 100%;
+}
 
 
 .outerborder{
