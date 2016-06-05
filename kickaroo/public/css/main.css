@@ -72,7 +72,11 @@ margin-left: 100px;
 .maintitle.col-md-8 h1 {
     font-size: 71px;
 }
-
+.welcomeslider p {
+    font-size: 17px !important;
+    /* background-color: white; */
+    font-weight: 700!important;
+}
 /**
  * Navbar stuff
  */
