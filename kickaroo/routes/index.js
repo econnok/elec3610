@@ -3,10 +3,9 @@ module.exports = function(app, passport) {
 
 var express = require('express');
 var router = express.Router();
-var ical2json = require("ical2json");
-var Timetable  = require('../models/timetable');
+var Event = require('../models/kevent');
 var moment = require('moment');
-var hour = require('../models/hour');
+
 
 
 	app.use(function(req, res, next) {
@@ -34,6 +33,25 @@ moment().format();
 			user : req.user // 
 		});
 	});
+	// ===========================================
+	// HOST EVENT=================================
+	// ===========================================
+		// if successful login then go to meta tutorial page
+	app.get('/host', isLoggedIn, function(req, res) {
+		res.render('host.ejs', {
+			user : req.user // 
+		});
+	});
+/*
+	app.post('/host', passport.authenticate('local-login', {
+		successRedirect : '/index', // redirect to the secure profile section
+
+
+		failureRedirect : '/login', // redirect back to the signup page if there is an error
+		failureFlash : true // allow flash messages
+	}));
+
+*/
 	// =====================================
 	// LOGIN ===============================
 	// =====================================
@@ -91,7 +109,35 @@ moment().format();
 		// render the page and pass in any flash data if it exists
 		res.render('retrieve.ejs');
 	});
+	//#### EVENTS ROUTES  BEGIN####
 	
+	
+//Pull all records from database
+app.get('/eventsrouter', function(req, res){ // listening for people who are using this to talk to server
+	console.log("I have recieved a request through the eventssroute");
+	Event.find(function (err, docs) {
+		if (err) return console.error(err);
+		//console.log(docs);
+		res.json(docs);
+})
+
+}); 
+// Post to database
+app.post('/eventsrouter', function(req,res){
+	console.log("ABOUT TO POST");
+	//console.log(req.body);
+	
+				
+	
+	console.log(req.body.description);
+	var file =  new Event({ title: req.body.title, author: req.body.author , description:req.body.description, date: req.body.date });
+	///////////////
+	file.save(function (err) {
+	
+	});
+	res.json(0);
+
+});
 // route middleware to make sure
 function isLoggedIn(req, res, next) {
 
@@ -106,130 +152,6 @@ function isLoggedIn(req, res, next) {
 	
 	// HERE GOES THE TIMETABLE FUNCTIONS
 	
-	app.post('/icaldl', function(req,res,next){
-	
-	
-
-		writetofile(req.body); // 1
-		
-		setTimeout(function() {
-			console.log("INSIDE TIMEOUT")
-			var returnable = createjsontable();
-		// return the filled out timetable in json format
-			res.json(JSON.stringify(returnable));
-		//	res.json();
-
-		}, 2500);
-
-	});
-
-	app.post('/icalfile', function(req,res,next){
-	setTimeout(function() {
-		var returnable = createjsontable();
-		res.json(JSON.stringify(returnablee));
-	},2500);
-});
-
-
-
-
-	var createjsontable = function(){
-		
-		function tablesection (i){
-			this.hour = i;
-			this.mon = "";
-			this.tues = "";
-			this.wed = "";
-			this.thurs = "";
-			this.fri = "";
-		}
-
-	
-		var tabletemplate = [];
-		
-		for(var i = 0; i<19; i++){
-			tabletemplate[i] =  new tablesection(i);
-		};	
-		
-			console.log("about to create json file");
-			var fs = require('fs');
-			var jsontable;
-			var unityear;
-			var unitmonth;
-			var unitday;
-			var readfiledata;
-			var templateinstance = tabletemplate ;
-			// THIS  CONVERTS THE FILE TO JSON
-		// get file that was written from link
-	
-	
-			var xfile = fs.readFileSync("file.ics").toString();
-			
-			
-			// ical2json conversion
-			 jsontable = ical2json.convert(xfile);
-			 var currevent ="" ;
-			
-
-				// here the json is created from the file with the timetable data
-			 for(var i=0; i< jsontable.VEVENT.length; i++){
-
-				// this find the first unique unit in the timetable file
-				if(currevent != jsontable.VEVENT[i].SUMMARY ){
-				
-					currevent = jsontable.VEVENT[i].SUMMARY; // event name
-					var sample = jsontable.VEVENT[i]; // 
-					var begintimesplit = sample['DTSTART;TZID=Australia/Sydney;VALUE=DATE-TIME'].split("T");
-					var begintime = begintimesplit[1]/10000;
-					var endtimesplit = sample['DTEND;TZID=Australia/Sydney;VALUE=DATE-TIME'].split("T");
-					var endtime = endtimesplit[1]/10000;
-					// this is to get the yyyy/mm/dd from the string
-					unityear = begintimesplit[0].substring(0,4);
-					unitmonth = begintimesplit[0].substring(4,6);
-					unitday = begintimesplit[0].substring(6,8);
-					var tabledate =  new moment(unityear+"-"+unitmonth+"-"+unitday);
-					// now to get the day of the week this date was on
-					var weekday = tabledate.day();
-					// function to get the times between the beginning and end
-					var timediff = endtime - begintime;
-					templateinstance = between(timediff,begintime,currevent,weekday,templateinstance);
-				} 
-			 }
-
-
-			return templateinstance;
-	
-	};
-	
-	
-	var between = function(timediff,begintime,currevent,weekday,templateinstance){
-		
-		for(var i=0; i<= timediff; i++){
-				templateinstance[i +begintime].hour = i+begintime;
-
-					if(weekday ==1){
-						templateinstance[i +begintime].mon = currevent;
-
-						}
-					else if(weekday ==2){
-						templateinstance[i +begintime].tues = currevent;
-					}
-					else if(weekday ==3){
-						templateinstance[i +begintime].wed = currevent;
-					}
-					else if(weekday ==4){
-						templateinstance[i +begintime].thurs = currevent;
-					}
-					else if(weekday ==5){
-						templateinstance[i +begintime].fri = currevent;
-					}
-		}
-		
-		return templateinstance;
-	
-	
-	}
-
 	var writetofile = function(path){
 	
 		console.log("insidecreatejason");

@@ -1,4 +1,4 @@
-<html ng-app ="myApp" ng-controller="AppCtrl" ng-init ="initial('<%= user.local.email %>')">
+<html ng-app="myApp" ng-controller="AppCtrl" ng-init ="initial('<%= user.local.email %>')">
 <head>
 
     <title>Kickaroo</title>
@@ -26,61 +26,30 @@
                 <div class="navbar-collapse collapse navbar-responsive-collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="/">Game of the day</a></li>
-
+                        <li></strong>Hello : <%= user.local.email %></strong></li>
                     </ul>
                 </div>
             </div>
 
         </div>
-
+     
         <div class="navbar navbar-inverse col-md-12">
             <div class="navbar-collapse collapse navbar-responsive-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
+                    <li><a href="#/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
                     <li><a href="login">News<span class="glyphicon glyphicon-log-in" aria-hidden="true"></span></a></li>
-                    <li><a href="retrieve">Events</a></li>
+                    <li><a href="#events">Events</a></li>
                     <li><a href="signup"><span class="glyphicon glyphicon-registration-mark" aria-hidden="true"></span>Merchandise</a></li> 
                     <li><a href="signup"><span class="glyphicon glyphicon-registration-mark" aria-hidden="true"></span>Forum</a></li> 
                     <li><a href="signup"><span class="glyphicon glyphicon-registration-mark" aria-hidden="true"></span>Login</a></li>                             
                 </ul>
             </div>
         </div>
+        <div class = "outerborder">
+          <ng-view> </ng-view>
 
-        <div class="jumbotron col-md-12" id="introarea">
-            <div class="left-main col-md-2">
-               <ul class="nav navbar-nav navbar-right">
-                <h3> SPORTS</h3>
-                <li><a href="/">A-League<span class="glyphicon glyphicon-log-in" aria-hidden="true"></span></a></li>
-                <li><a href="login">AFL<span class="glyphicon glyphicon-log-in" aria-hidden="true"></span></a></li>
-
-                <li><a href="login">NRL<span class="glyphicon glyphicon-log-in" aria-hidden="true"></span></a></li>
-            </ul>
         </div>
-
-        <div class="centre-slider col-md-8">
-
-
-           <img id="scaledImage" src="../images/slider.jpg" alt=""/>
-           <p>Placeholder Image Slider widget</p>
-           <div class="col-md-5 col-md-offset-3 ad"
-           <em>Advertise here</em>
-       </div>
-
-       <hr>
-   </div>
-
-   <div class="right-main col-md-2">
-      <ul class="nav navbar-nav navbar-right">
-        <div class="loggedinstatus"<strong>Hello</strong>: <%= user.local.email %><br></div>
-        <li><a href="/">My Account<span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
-        <li><a href="login">Latest Forum Replies<span class="glyphicon glyphicon-log-in" aria-hidden="true"></span></a></li>
-
-        <li><a href="login">Latest Events<span class="glyphicon glyphicon-log-in" aria-hidden="true"></span></a></li>
-    </ul>
-</div>
-
-
-</div>
+ 
 <footer class="col-md-12 navbar navbar-inverse disclaimerplus">
   <p> Disclaimer: This is a mock-up site created for the purposes of ELEC3610. It is not a real website.</p>
 </footer>
